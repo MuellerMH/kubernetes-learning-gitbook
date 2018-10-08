@@ -88,7 +88,7 @@ subsets:
 > * 127.0.0.0/8 (Loopback)
 > * 169.254.0.0/16 (link-local)
 > * 224.0.0.0/24 (link-local-multicast)
-> und können auch keine Cluster IPs sein da die [Kube-Proxy](3-k8s-basic-node#kube-proxy) Komponente dies nicht unterstützt.
+> und können auch keine Cluster IPs sein da die [Kube-Proxy](3-k8s-basic-node.md#kube-proxy) Komponente dies nicht unterstützt.
 
 Der Service funktioniert nun wie ein Service mit Selektoren und leitet den Traffik an den definierten Endpunkt.
 
