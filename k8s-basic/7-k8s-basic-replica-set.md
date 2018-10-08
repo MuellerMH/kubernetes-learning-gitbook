@@ -11,7 +11,7 @@
 | Author | Manuel H. "Onko" Müller |
 | Mail | mm@kubernauts.de |
 | Resource | [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/) |
-| Description |  |
+| Description | Diese Lektion vermittelt alle Informationen zum Thema Replica Sets |
 
 ## ReplicaSet
 

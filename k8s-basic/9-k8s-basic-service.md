@@ -11,11 +11,11 @@
 | Author | Manuel H. "Onko" Müller |
 | Mail | mm@kubernauts.de |
 | Resource | [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/) |
-| Description |  |
+| Description | Diese Lektion vermittelt alle Informationen zum Thema Service |
 
 ## Service
 
-Ein Kubernetes Service ist eine Abstraction welche die Logik von Pods und Regelen definiert. Die Pods können anhand von [Labels](10-k8-basic-label.md) selektiert werden.
+Ein Kubernetes Service ist eine Abstraction welche die Logik von Pods und Regeln definiert. Die Pods können anhand von [Labels](10-k8-basic-label.md) selektiert werden.
 
 Da Pods jederzeit gestopped und irgendwo anders neu gestarted werden können oder sich die Anzahl der Pods jederzeit ändern kann bietet die Service Abstraction das Routing zu den laufenden Pods, so dass man sich nicht ständig damit beschäftigen muss welche IP Adresse ein Pod gerade hat und wer aktuell auf diese Pods zugriff hat.
 

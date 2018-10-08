@@ -10,7 +10,7 @@
 | Author | Manuel H. "Onko" Müller |
 | Mail | mm@kubernauts.de |
 | Resource | [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/) |
-| Description | Am Ende dieses Kurses werden Sie die grundlegenden Themen der k8s Master verstehen. Was ist ein Kubernetes Master. Wofür wird die Kube-API benötigt? Was macht der Kube-Scheduler? wofür ist ein Kube-Controller und was hat es mit dem Cloud Controller auf sich ? |
+| Description | Am Ende dieser Lektion wirst du die grundlegenden Themen der k8s Master verstehen. Was ist ein Kubernetes Master. Wofür wird die Kube-API benötigt? Was macht der Kube-Scheduler? wofür ist ein Kube-Controller und was hat es mit dem Cloud Controller auf sich ? |
 
 ---
 
