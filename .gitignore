@@ -122,8 +122,6 @@ _ReSharper*/
 # JustCode is a .NET coding add-in
 .JustCode
 
-.waka-project
-
 # TeamCity is a build add-in
 _TeamCity*
 
@@ -330,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+.wakatime-project

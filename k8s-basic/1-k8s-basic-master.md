@@ -6,12 +6,11 @@
 | Category | Course |
 | Level | Novice |
 | Duration | ? |
-| YouTube | ... |
-| Blog | https://muellermh.wordpress.com/k8s-basic-training-node  |
-| Author | Manuel H. Müller alias Onko |
+| YouTube | [https://youtube.com/crankzone/xxx](https://youtube.com/crankzone/xxx) |
+| Author | Manuel H. "Onko" Müller |
 | Mail | mm@kubernauts.de |
-| Resource | https://kubernetes.io/docs/concepts/architecture/nodes/ | 
-| Description | By the end of this course you will understand the basic topics of k8s nodes. What is a node, how kubernetes controll the nodes and how to self-register a node to the cluster |
+| Resource | [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/) |
+| Description | Am Ende dieses Kurses werden Sie die grundlegenden Themen der k8s Master verstehen. Was ist ein Kubernetes Master. Wofür wird die Kube-API benötigt? Was macht der Kube-Scheduler? wofür ist ein Kube-Controller und was hat es mit dem Cloud Controller auf sich ? |
 
 ---
 
