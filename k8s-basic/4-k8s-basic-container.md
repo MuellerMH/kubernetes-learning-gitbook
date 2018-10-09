@@ -10,7 +10,7 @@
 | Blog | [https://muellermh.wordpress.com/k8s-basic-training-etcd](https://muellermh.wordpress.com/k8s-basic-training-etcd)  |
 | Author | Manuel H. "Onko" Müller |
 | Mail | mm@kubernauts.de |
-| Resource | [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/) |
+| Resource | [https://kubernetes.io/docs/concepts/containers/images/](https://kubernetes.io/docs/concepts/containers/images/) |
 | Description | Diese Lektion vermittelt alle Informationen zum Thema Container und wie Kubernetes mit diese umgeht.  |
 
 ---

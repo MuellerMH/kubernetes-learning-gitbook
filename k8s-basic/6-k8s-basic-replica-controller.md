@@ -10,8 +10,8 @@
 | Blog | [https://muellermh.wordpress.com/k8s-basic-training-etcd](https://muellermh.wordpress.com/k8s-basic-training-etcd)  |
 | Author | Manuel H. "Onko" Müller |
 | Mail | mm@kubernauts.de |
-| Resource | [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/) |
-| Description | Diese Lektion vermittelt alle Informationen zum Thema Replication Controller |
+| Resource | [https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) |
+| Description | Diese Lektion vermittelt alle Informationen zum Thema ReplicationController |
 
 ## Replication Controller
 

@@ -10,7 +10,7 @@
 | Blog | [https://muellermh.wordpress.com/k8s-basic-training-etcd](https://muellermh.wordpress.com/k8s-basic-training-etcd)  |
 | Author | Manuel H. "Onko" Müller |
 | Mail | mm@kubernauts.de |
-| Resource | [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/) |
+| Resource | [https://kubernetes.io/docs/concepts/architecture/nodes/](https://kubernetes.io/docs/concepts/architecture/nodes/) |
 | Description | Am Ende dieses Kurses werden Sie die grundlegenden Themen der k8s Nodes verstehen. |
 
 ---

@@ -12,12 +12,13 @@
 * [07 Replica](k8s-basic/7-k8s-basic-replica-set.md)
 * [08 Deployment](k8s-basic/8-k8s-basic-deployment.md)
 * [09 Service](k8s-basic/9-k8s-basic-service.md)
-* [10 Label](k8s-basic/10-k8-basic-label.md)
-* [11 Secret](k8s-basic/11-k8s-basic-secret.md)
-* [12 Job](k8s-basic/12-k8s-basic-job.md)
-* [13 Deamonset](k8s-basic/13-k8s-basic-deamonset.md)
-* [14 Bare](k8s-basic/14-k8s-basic-bare-pod.md)
-* [15 Health](k8s-basic/15-k8s-basic-health-check.md)
+* [10 Annotations](k8s-basic/11-k8-basic-annotations.md)
+* [11 Label](k8s-basic/11-k8-basic-label.md)
+* [12 Secret](k8s-basic/12-k8s-basic-secret.md)
+* [13 Job](k8s-basic/13-k8s-basic-job.md)
+* [14 Deamonset](k8s-basic/14-k8s-basic-deamonset.md)
+* [15 Bare](k8s-basic/15-k8s-basic-bare-pod.md)
+* [16 Health](k8s-basic/16-k8s-basic-health-check.md)
   
 ## Advance
 
