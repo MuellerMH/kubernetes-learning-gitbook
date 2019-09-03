@@ -1,4 +1,4 @@
-# Learing Kubernetes
+# Learning Kubernetes
 
 This is my personal way to prepare the Content for the CKA / CKAD Certification
 
