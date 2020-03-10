@@ -15,7 +15,7 @@ marp: true
 | Blog | https://muellermh.wordpress.com/k8s-basic-training-master  |
 | Author | Manuel H. Müller alias Onko |
 | Mail | mm@kubernauts.de |
-| Resource | https://kubernetes.io/docs/concepts/architecture/nodes/ | 
+| Resource | https://kubernetes.io/docs/concepts/architecture/nodes/ |
 | Description | By the end of this course you will understand the basic topics of k8s nodes. What is a node, how kubernetes controll the nodes and how to self-register a node to the cluster |
 
 ---
@@ -52,7 +52,6 @@ Es wurden zwei Instanzen gewählt um den Single Point of Fail zu lösen der bei 
 ### Kube-API server
 
 --
->>>>>>> 880b971e13c006e476ca8bb4614174c74d3281cd
 
 Diese Komponente stellt die Kubernetes API zur verfügung. Die API ist der dreh und ankerpunkt des Kubernetes Clusters. Sie ist horizont scalierbar ausgerichtet und somit stateless.
 
