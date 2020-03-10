@@ -2,12 +2,16 @@
 
 |||
 |---|---|
-| Title | K8 Basic training |
+| Title | K8 Basic Replication Controller |
 | Category | Course |
 | Level | Novice |
 | Duration | ? |
-| Url | ... |
-| Description | By the end of this course you will understand the basic topics of k8s. You will learn how container, pods, replica, services, secrets, labels and deployments works also with helath-checks.   |
+| YouTube | [https://youtube.com/crankzone/xxx](https://youtube.com/crankzone/xxx) |
+| Blog | [https://muellermh.wordpress.com/k8s-basic-training-etcd](https://muellermh.wordpress.com/k8s-basic-training-etcd)  |
+| Author | Manuel H. "Onko" Müller |
+| Mail | mm@kubernauts.de |
+| Resource | [https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) |
+| Description | Diese Lektion vermittelt alle Informationen zum Thema ReplicationController |
 
 ## Replication Controller
 
@@ -31,7 +35,7 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   name: nginx
-spec:  
+spec:
   template: # Pod Template
     metadata:
       name: nginx
@@ -50,7 +54,7 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   name: nginx
-spec:  
+spec:
   template:
     metadata:
       name: nginx
@@ -166,7 +170,7 @@ enviroment: prod
 track: latest
 ```
 
-und 
+und
 
 ```yaml
 app: nginx

@@ -1,3 +1,4 @@
+
 ---
 marp: true
 ---
@@ -26,6 +27,32 @@ Der Master besteht aus mehreren Komponenten. Diese treffen globale Entscheidunge
 ---
 
 ### Kube-API server°
+=======
+| Resource | [Link to resources](https://kubernetes.io/docs/concepts/overview/components/) |
+| Description | Am Ende dieser Lektion wirst du die grundlegenden Themen der k8s Master verstehen.|
+
+---
+
+## Master Componenten
+
+--
+
+Der Master besteht aus mehreren Komponenten. Diese treffen globale Entscheidungen über den Cluster, wo zum Beispiel welche Pods gestarted werden und ekennt und reagiert auf Cluster Ereignisse.
+
+--
+
+Hierunter fallen startende und ausgefallene Pods oder wenn die Replikationen nicht erfüllt sind. Theoretisch können die Master Komponenten mit auf den Nodes laufen, jedoch hat es sich in der Praxis bewährt diese auf zwei eigene Instanzen auszulagern.
+
+--
+
+Es wurden zwei Instanzen gewählt um den Single Point of Fail zu lösen der bei einer einzelnen Instanze zu tragen käme. Mehr als zwei Master Instanzen bieten jedoch keinen nennenswerten Vorteil.
+
+---
+
+### Kube-API server
+
+--
+>>>>>>> 880b971e13c006e476ca8bb4614174c74d3281cd
 
 Diese Komponente stellt die Kubernetes API zur verfügung. Die API ist der dreh und ankerpunkt des Kubernetes Clusters. Sie ist horizont scalierbar ausgerichtet und somit stateless.
 

@@ -6,12 +6,12 @@
 | Category | Course |
 | Level | Novice |
 | Duration | ? |
-| YouTube | ... |
-| Blog | https://muellermh.wordpress.com/k8s-basic-training-node  |
-| Author | Manuel H. Müller alias Onko |
+| YouTube | [https://youtube.com/crankzone/xxx](https://youtube.com/crankzone/xxx) |
+| Blog | [https://muellermh.wordpress.com/k8s-basic-training-etcd](https://muellermh.wordpress.com/k8s-basic-training-etcd)  |
+| Author | Manuel H. "Onko" Müller |
 | Mail | mm@kubernauts.de |
-| Resource | https://kubernetes.io/docs/concepts/architecture/nodes/ | 
-| Description | By the end of this course you will understand the basic topics of k8s nodes. |
+| Resource | [https://kubernetes.io/docs/concepts/architecture/nodes/](https://kubernetes.io/docs/concepts/architecture/nodes/) |
+| Description | Am Ende dieses Kurses werden Sie die grundlegenden Themen der k8s Nodes verstehen. |
 
 ---
 
