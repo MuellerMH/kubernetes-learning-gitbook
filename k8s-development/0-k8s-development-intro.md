@@ -4,7 +4,7 @@
 |---|---|
 | Title | K8 Development training |
 | Category | Course |
-| Level | Novice |
+| Level | proficient |
 | Duration | ? |
 | Url | ... |
-| Description | By the end of this course you will be prepared for the CKAD. You will learn how container, pods, replica, services, secrets, labels and deployments works also with helath-checks.   |
+| Description | Diese Sektion richtet sich an Entwickler, die Anwendungen für Kubernetes bauen: Pod-Lifecycle und Container-Konfiguration, Multi-Container-Pattern, Pod-Design mit Deployments/Jobs/CronJobs, Security-Context/Service-Accounts, Observability (Probes, Logging, Debugging) sowie Service-Discovery und Netzwerksicht aus Anwendungsperspektive. |

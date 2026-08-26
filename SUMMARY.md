@@ -12,7 +12,7 @@
 * [07 Replica](k8s-basic/7-k8s-basic-replica-set.md)
 * [08 Deployment](k8s-basic/8-k8s-basic-deployment.md)
 * [09 Service](k8s-basic/9-k8s-basic-service.md)
-* [10 Annotations](k8s-basic/11-k8s-basic-annotations.md)
+* [10 Annotations](k8s-basic/10-k8s-basic-annotations.md)
 * [11 Label](k8s-basic/11-k8s-basic-label.md)
 * [12 Secret](k8s-basic/12-k8s-basic-secret.md)
 * [13 Job](k8s-basic/13-k8s-basic-job.md)
