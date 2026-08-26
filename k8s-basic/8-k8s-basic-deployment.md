@@ -31,10 +31,7 @@ Sie beschreiben einen gewünschten Zustand in einem Deployment-Objekt, und der D
 ## Updaten eines Deployments
 
 Für das aktuallisieren des Images reicht folgender Befehl
-<<<<<<< HEAD
-=======
 
->>>>>>> 880b971e13c006e476ca8bb4614174c74d3281cd
 ```bash
 kubectl set image deployment/nginx nginx=nginx:1.15.1
 ```

@@ -190,6 +190,6 @@ Pods die mit einem ReplicationController betrieben werden sollten ersetzbar und 
 
 - [ReplicaSet](7-k8s-basic-replica-set.md)
 - [Deployment](8-k8s-basic-deployment.md)
-- [Bare Pods](14-k8s-basic-bare-pod.md)
-- [Job](12-k8s-basic-job.md)
-- [DeamonSet](13-k8s-basic-daemonset.md)
+- [Bare Pods](15-k8s-basic-bare-pod.md)
+- [Job](13-k8s-basic-job.md)
+- [DeamonSet](14-k8s-basic-deamonset.md)
