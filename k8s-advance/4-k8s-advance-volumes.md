@@ -125,3 +125,67 @@ spec:
 ```
 
 Kurz zusammengefasst: Ein einfaches Volume (`emptyDir`, `hostPath`) ist an Pod oder Node gebunden und verschwindet mit diesen. Ein PersistentVolume ist ein eigenständiges, vom Pod-Lebenszyklus entkoppeltes Speicherobjekt, das über eine PersistentVolumeClaim in einen Pod eingebunden wird.
+
+## Access Modes
+
+Über `accessModes` legen PV und PVC fest, wie der Speicher eingebunden werden darf:
+
+| Access Mode | Kurzform | Bedeutung |
+|---|---|---|
+| ReadWriteOnce | RWO | lesend und schreibend von **einem Node** gemountet |
+| ReadOnlyMany | ROX | nur lesend von vielen Nodes gemountet |
+| ReadWriteMany | RWX | lesend und schreibend von vielen Nodes gemountet (z. B. NFS, CephFS) |
+| ReadWriteOncePod | RWOP | lesend und schreibend von genau **einem Pod** gemountet |
+
+Welche Modi tatsächlich zur Verfügung stehen, hängt vom Storage-Backend ab. Ein Block Storage wie AWS EBS unterstützt zum Beispiel nur `ReadWriteOnce`.
+
+## Reclaim Policy
+
+Die `persistentVolumeReclaimPolicy` eines PV bestimmt, was mit dem PV passiert, nachdem die zugehörige PVC gelöscht wurde:
+
+* `Retain` — das PV und die Daten bleiben erhalten. Das PV geht in den Status `Released` und muss vom Administrator manuell bereinigt und wieder freigegeben werden.
+* `Delete` — das PV und der dahinterliegende Speicher werden automatisch gelöscht. Das ist der Default bei dynamisch provisionierten Volumes.
+
+## StorageClass und dynamische Provisionierung
+
+PVs von Hand anzulegen skaliert in größeren Clustern schlecht. Mit einer **StorageClass** beschreibt der Administrator stattdessen eine "Speicherklasse" (z. B. schnell/SSD oder günstig/HDD), und Kubernetes legt passende PVs automatisch an, sobald eine PVC diese Klasse anfordert.
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: fast
+provisioner: ebs.csi.aws.com
+parameters:
+  type: gp3
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+```
+
+* `provisioner` ist der (meist CSI-)Treiber, der den Speicher beim Storage-Backend anlegt.
+* `volumeBindingMode: WaitForFirstConsumer` sorgt dafür, dass das Volume erst angelegt wird, wenn ein Pod die PVC nutzt. So landet das Volume in derselben Zone wie der Node, auf dem der Pod geplant wurde.
+* `allowVolumeExpansion: true` erlaubt es, eine PVC nachträglich zu vergrößern.
+
+Eine PVC verweist über `storageClassName` auf die Klasse, ein PV muss nicht mehr vorab existieren:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data
+spec:
+  storageClassName: fast
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+```
+
+Ist eine StorageClass mit der Annotation `storageclass.kubernetes.io/is-default-class: "true"` markiert, wird sie für alle PVCs ohne `storageClassName` verwendet.
+
+```shell
+kubectl get storageclass
+kubectl get pv,pvc
+```

@@ -22,7 +22,7 @@ marp: true
 
 ## Master
 
-Der Master besteht aus mehreren Komponenten. Diese treffen globale Entscheidungen über den Cluster, wo zum Beispiel welche Pods gestarted werden und ekennt und reagiert auf Cluster Ereignisse. Hierunter fallen startende und ausgefallene Pods oder wenn die Replikationen nicht erfüllt sind. Theoretisch können die Master Komponenten mit auf den Nodes laufen, jedoch hat es sich in der Praxis bewährt diese auf zwei eigene Instanzen auszulagern. Es wurden zwei Instanzen gewählt um den Single Point of Fail zu lösen der bei einer einzelnen Instanze zu tragen käme. Mehr als zwei Master Instanzen bieten jedoch keinen nennenswerten Vorteil.
+Der Master besteht aus mehreren Komponenten. Diese treffen globale Entscheidungen über den Cluster, wo zum Beispiel welche Pods gestarted werden und ekennt und reagiert auf Cluster Ereignisse. Hierunter fallen startende und ausgefallene Pods oder wenn die Replikationen nicht erfüllt sind. Theoretisch können die Master Komponenten mit auf den Nodes laufen, jedoch hat es sich in der Praxis bewährt, diese auf eigene Instanzen auszulagern. Eine einzelne Master Instanz ist ein Single Point of Failure. Für eine hochverfügbare Control Plane werden mindestens drei Master Instanzen betrieben, da der meist auf den Mastern mitlaufende [etcd](2-k8s-basic-etcd.md) ein Quorum benötigt und erst ab drei Instanzen den Ausfall einer Instanz verkraftet. Mehr dazu im Kapitel [Admin: High Availability](../k8s-admin/4-k8s-admin-highavailabity.md).
 
 ---
 

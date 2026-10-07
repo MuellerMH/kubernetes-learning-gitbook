@@ -15,11 +15,63 @@
 
 ## ReplicaSet
 
-Das ReplicaSet ist die weiterentwicklung der Replica Controller. Der haupt Unterschied zwischen dem Replica Controller und dem ReplicaSet ist die unterstützung von Filtern ( selector support ). Das ReplicaSet unterstützt Labels als Selector während der Replica Controller nur gleichheitsbassierte Selektion unterstützt.
+Das ReplicaSet ist die Weiterentwicklung des Replication Controllers. Der Hauptunterschied zwischen dem Replica Controller und dem ReplicaSet ist die Unterstützung von mengenbasierten Selektoren (set-based selector). Das ReplicaSet unterstützt neben gleichheitsbasierter Selektion auch Ausdrücke wie `In` oder `NotIn`, während der Replication Controller nur gleichheitsbasierte Selektion unterstützt.
 
-## Horizontal Pod Autoscaller
+In der Praxis wird ein ReplicaSet selten direkt angelegt. Meistens wird ein [Deployment](8-k8s-basic-deployment.md) erstellt, das seinerseits ReplicaSets erzeugt und verwaltet, zum Beispiel um Rolling Updates und Rollbacks zu ermöglichen.
 
-Zudem kann ein ReplicaSet auch in ein HorizontalPodAutoscaler definiert werden. Hier werden dann min und max Replicas definiert und zusätlich ein Wert der das Autoscalling beeinflusst.
+## ReplicaSet beschreiben
+
+```yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+    matchExpressions:
+      - {key: environment, operator: In, values: [dev, prod]}
+  template:
+    metadata:
+      labels:
+        tier: frontend
+        environment: dev
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+```
+
+Neben `matchLabels` unterstützt der Selector mit `matchExpressions` auch mengenbasierte Abfragen mit den Operatoren `In`, `NotIn`, `Exists` und `DoesNotExist`. Die Labels im Pod Template müssen zum Selector passen, sonst lehnt die API das ReplicaSet ab.
+
+## Arbeiten mit ReplicaSets
+
+```shell
+# ReplicaSet erstellen
+kubectl apply -f frontend.yaml
+
+# ReplicaSets anzeigen (Kurzform: rs)
+kubectl get rs
+
+# auf 5 Replicas skalieren
+kubectl scale rs frontend --replicas=5
+
+# ReplicaSet löschen, die Pods aber weiterlaufen lassen
+kubectl delete rs frontend --cascade=orphan
+```
+
+Ein ReplicaSet übernimmt auch bereits laufende Pods, deren Labels zum Selector passen, selbst wenn diese nicht von ihm erzeugt wurden. Ein [Bare Pod](15-k8s-basic-bare-pod.md) mit dem Label `tier: frontend` würde also mitgezählt.
+
+## Horizontal Pod Autoscaler
+
+Zudem kann ein ReplicaSet als Ziel eines HorizontalPodAutoscalers definiert werden. Hier werden min und max Replicas festgelegt und zusätzlich ein Zielwert, der das Autoscaling steuert. Mehr dazu im Kapitel [Advance: Autoscaling](../k8s-advance/7-k8s-advance-autoscalling.md).
 
 ```yaml
 apiVersion: autoscaling/v1
@@ -28,6 +80,7 @@ metadata:
   name: frontend-scaler
 spec:
   scaleTargetRef:
+    apiVersion: apps/v1
     kind: ReplicaSet
     name: frontend
   minReplicas: 3

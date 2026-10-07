@@ -23,7 +23,7 @@ Generelle Kubernetes Config für ReplicationController:
 
 ```yaml
 apiVersion: v1
-kind: ReplicationControllerhttps://github.com/kubernauts/tk8/issues/34
+kind: ReplicationController
 metadata:
   name: nginx
 ```
@@ -44,7 +44,7 @@ spec:
       - name: nginx
         image: nginx
         ports:
-   - containerPort: 80
+        - containerPort: 80
 ```
 
 ### Labels
@@ -65,7 +65,7 @@ spec:
       - name: nginx
         image: nginx
         ports:
-   - containerPort: 80
+        - containerPort: 80
 ```
 
 ### Pod Selector
@@ -134,7 +134,7 @@ Mit dem Befehl `kubectl delete replicationcontroller/nginx` werden die Pods auf 
 
 ### Delete Replication controller only
 
-Mit dem Befehl `kubectl delete replicationcontroller/nginx --cascade=false` werden die Pods nicht runter scalliert und nur der ReplicationController entfernt.
+Mit dem Befehl `kubectl delete replicationcontroller/nginx --cascade=orphan` (in älteren kubectl Versionen `--cascade=false`) werden die Pods nicht runter scalliert und nur der ReplicationController entfernt.
 
 ### Isolating pods from a replication controller
 
@@ -158,7 +158,7 @@ Zudem erleichter der ReplicationController das scallieren. Da hier einfach ein n
 
 Ein weiterer Einsatz ist im Bereich des Rolling Updates vorhanden. Der Replication Controller wird nach und nach manuell um ein Replica verringert. Parallel dazu wird ein neuer ReplicaController gestarted bei dem nach und nach ein Replica hinzugefügt wird. Dadurch scalliert der alte ReplicationController sein Pods runter und der neue Replication Controller scalliert seine Pods hoch.
 
-Das Rolling Update ist in der CLI implementiert, siehe hierzu [`kubectl rolling-update`](https://kubernetes.io/docs/tasks/run-application/rolling-update-replication-controller/)
+Früher gab es dafür den Befehl `kubectl rolling-update`. Dieser wurde mit Kubernetes 1.18 entfernt. Rolling Updates werden heute mit einem [Deployment](8-k8s-basic-deployment.md) durchgeführt, das diesen Ablauf automatisch über ReplicaSets abbildet.
 
 ### multiple release tracks
 

@@ -74,3 +74,42 @@ spec:
 ```
 
 In diesem Fall läuft der DaemonSet-Pod nur auf Nodes, die das Label `disktype: ssd` tragen.
+
+## Tolerations für Control-Plane Nodes
+
+Control-Plane Nodes tragen in der Regel den Taint `node-role.kubernetes.io/control-plane:NoSchedule`. Normale Pods und damit auch DaemonSet-Pods werden dort nicht gestartet. Soll ein Agent, zum Beispiel ein Log-Collector, auch auf den Control-Plane Nodes laufen, braucht die Pod Vorlage eine passende Toleration:
+
+```yaml
+spec:
+  template:
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+```
+
+Einige Tolerations setzt der DaemonSet Controller automatisch, zum Beispiel für `node.kubernetes.io/not-ready` und `node.kubernetes.io/unreachable`. Dadurch werden DaemonSet-Pods bei Node-Problemen nicht verdrängt, was für Netzwerk- oder Storage-Daemons wichtig ist.
+
+## Update-Strategie
+
+Über `spec.updateStrategy` wird festgelegt, wie Änderungen am Pod Template ausgerollt werden:
+
+* `RollingUpdate` (Default) — die Pods werden Node für Node ersetzt. Mit `maxUnavailable` wird gesteuert, wie viele Nodes gleichzeitig ohne laufenden DaemonSet-Pod sein dürfen.
+* `OnDelete` — neue Pods werden erst erzeugt, wenn ein alter Pod manuell gelöscht wird. Das ist nützlich, wenn kritische Daemons kontrolliert Node für Node aktualisiert werden sollen.
+
+```yaml
+spec:
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+```
+
+Den Fortschritt eines Rollouts verfolgst du wie beim Deployment:
+
+```shell
+kubectl rollout status daemonset/node-monitor -n kube-system
+kubectl rollout history daemonset/node-monitor -n kube-system
+kubectl rollout undo daemonset/node-monitor -n kube-system
+```

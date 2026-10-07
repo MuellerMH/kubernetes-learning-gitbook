@@ -25,26 +25,49 @@
 - Kubernetes DeamonSet
 - Kubernetes Bare Pod
 - Kubernetes Health Check
+- Kubernetes Volumes
 
-## Importend to save time
+## Important to save time
 
 generate a secret yaml
 
 ```bash
-kubectl create secret generic test-secret --from-literal=foo -o yaml --dry-run > test-secret.yaml
+kubectl create secret generic test-secret --from-literal=foo=bar -o yaml --dry-run=client > test-secret.yaml
 ```
 
 generate a deployment yaml
 
 ```bash
-kubectl create deployment test-deployment --image=nginx -o yaml --dry-run > test-deployment.yaml
+kubectl create deployment test-deployment --image=nginx -o yaml --dry-run=client > test-deployment.yaml
 ```
 
 generate a service nodeport yaml
 
 ```bash
-kubectl create service nodeport test-service --tcp 80:8080 -o yaml --dry-run > test-service.yaml
+kubectl create service nodeport test-service --tcp 80:8080 -o yaml --dry-run=client > test-service.yaml
 ```
+
+generate a pod yaml
+
+```bash
+kubectl run test-pod --image=nginx -o yaml --dry-run=client > test-pod.yaml
+```
+
+generate a job yaml
+
+```bash
+kubectl create job test-job --image=busybox -o yaml --dry-run=client -- echo hello > test-job.yaml
+```
+
+## Voraussetzungen
+
+Für die praktischen Übungen brauchst du einen Test-Cluster und `kubectl`. Für den Einstieg reicht ein lokaler Cluster:
+
+- [kind](https://kind.sigs.k8s.io/) — Kubernetes in Docker, `kind create cluster`
+- [minikube](https://minikube.sigs.k8s.io/) — `minikube start`
+- [k3d](https://k3d.io/) — k3s in Docker, `k3d cluster create`
+
+Mit `kubectl cluster-info` und `kubectl get nodes` prüfst du, ob die Verbindung zum Cluster steht.
 
 ## Jetzt abonnieren
 
